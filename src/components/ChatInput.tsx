@@ -7,8 +7,8 @@ const InputContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: auto;
-  min-width: 600px;
-  max-width: 800px;
+  min-width: min(600px, calc(100vw - 48px));
+  max-width: min(800px, calc(100vw - 48px));
   background: rgba(32, 32, 32, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 16px;
@@ -19,17 +19,15 @@ const InputContainer = styled.div`
   @media (max-width: 900px) {
     min-width: calc(100vw - 48px);
     max-width: calc(100vw - 48px);
-    margin: 0 24px;
     padding: 12px 16px;
-    bottom: 64px;
+    bottom: 72px;
   }
 
   @media (max-width: 480px) {
     min-width: calc(100vw - 32px);
     max-width: calc(100vw - 32px);
-    margin: 0 16px;
     padding: 10px 12px;
-    bottom: 48px;
+    bottom: 64px;
   }
 `;
 
@@ -106,6 +104,10 @@ const CommandHint = styled.div<{ visible: boolean }>`
   transform: translateY(${props => (props.visible ? '0' : '4px')});
   transition: all 0.2s ease;
   pointer-events: none;
+  max-width: calc(100% - 32px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: 480px) {
     font-size: 12px;

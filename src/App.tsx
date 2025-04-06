@@ -17,15 +17,27 @@ const GlobalStyle = createGlobalStyle`
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 48px);
-  width: calc(100vw - 48px);
-  margin: 24px;
+  height: calc(100vh - 32px);
+  width: calc(100vw - 32px);
+  margin: 16px;
   overflow: hidden;
   background-color: #111111;
   border-radius: 16px;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 900px) {
+    height: calc(100vh - 24px);
+    width: calc(100vw - 24px);
+    margin: 12px;
+  }
+
+  @media (max-width: 480px) {
+    height: calc(100vh - 16px);
+    width: calc(100vw - 16px);
+    margin: 8px;
+  }
 `;
 
 const WhiteboardContainer = styled.div`
@@ -48,6 +60,7 @@ const Footer = styled.div`
   pointer-events: none;
   z-index: 1100;
   padding-bottom: 8px;
+  padding: 0 24px;
 
   @media (max-width: 900px) {
     bottom: 24px;
@@ -58,6 +71,10 @@ const Footer = styled.div`
     bottom: 16px;
     font-size: 9px;
     padding: 0 16px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
