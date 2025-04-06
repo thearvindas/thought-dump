@@ -1,20 +1,39 @@
 # Thought Dump
 
-A dynamic, ephemeral thought-dumping web application that allows users to throw text entries from a chat interface onto a virtual whiteboard with physics-based interactions.
+A minimalist, physics-based thought board where your ideas float and interact. Built with React, TypeScript, and Matter.js.
+
+![Thought Dump Preview](preview.png)
 
 ## Features
 
-- Split-screen layout with chat input and whiteboard space
-- Physics-based movement and collision detection
-- Command system for special actions
-- Text effects and styling options
-- Export functionality to PDF
-- Client-side only - no persistence between sessions
+### Text Formatting
+- `*text*` - Bold and larger text for emphasis
+- `_text_` - Smaller, subtle text for quieter thoughts
+- Regular text for normal thoughts
+
+### Commands
+Type `/` to see available commands:
+- `/shake` - Shake up all thoughts on the board
+- `/clear` - Clear the entire board
+- `/export` - Export current board as PDF
+- `/undo` - Undo last action (shake/clear)
+
+### Interaction
+- Drag thoughts around with physics-based movement
+- Thoughts stay upright for readability
+- Thoughts avoid the input area automatically
+- Subtle animations and transitions
+
+## Tech Stack
+- React 18
+- TypeScript
+- Matter.js for physics
+- Styled Components
+- jsPDF for exports
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js (v14 or higher)
 - npm or yarn
 
@@ -42,31 +61,29 @@ yarn start
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Available Commands
+## Privacy
+Your thoughts are 100% private. All processing happens in your browser - no data is stored or uploaded to any server.
 
-- `/shake` - Triggers animation that shakes all thoughts on the board
-- `/clear` - Removes all thoughts from the whiteboard
-- `/color [colorname]` - Sets color for the next thought
-- `/size [small/medium/large]` - Controls text size of next thought
-- `/float` - Makes next thought drift slowly across the board
-- `/pin` - Next thought will be fixed in position
-- `/export` - Triggers PDF export
+## Development
 
-## Text Effects
+### Project Structure
+```
+src/
+  ├── components/
+  │   ├── Whiteboard.tsx   # Physics and rendering logic
+  │   └── ChatInput.tsx    # Input and commands handling
+  ├── App.tsx             # Main application component
+  └── index.tsx          # Entry point
+```
 
-- `*bold thought*` - Appears with stronger font weight
-- `~wavy thought~` - Gets a subtle wave animation
-- `!important thought!` - Highlighted with special border
-- `_whisper_` - Appears smaller and with lower opacity
-
-## Built With
-
-- React
-- TypeScript
-- Matter.js
-- jsPDF
-- Styled Components
+### Key Features Implementation
+- Matter.js physics engine for natural movement
+- Custom text rendering with Canvas API
+- Responsive design with mobile support
+- Command system with undo functionality
 
 ## License
+MIT License - See LICENSE file for details
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+## Acknowledgments
+Built by Arvin with Claude & Cursor 
